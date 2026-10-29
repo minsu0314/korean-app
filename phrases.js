@@ -1,0 +1,102 @@
+// フレーズデータ（ここに追加すればアプリに出てくる）
+// scene: 場面 / level: 1〜4 / ko: 韓国語 / ja: 日本語
+// to: 誰に使うか / pron: 実際の発音（書き方と違うときだけ）/ note: ひとことメモ
+// polite: 同じ内容を丁寧にした言い方（あるときだけ）
+
+const SCENES = [
+  { id: "greet", label: "あいさつ", emoji: "👋" },
+  { id: "food", label: "ごはん", emoji: "🍚" },
+  { id: "plan", label: "予定・約束", emoji: "📅" },
+  { id: "feel", label: "気持ち・リアクション", emoji: "💗" },
+  { id: "elder", label: "家族（目上の人へ）", emoji: "👵" },
+];
+
+const PHRASES = [
+  // 👋 あいさつ
+  { id: "greet-01", scene: "greet", level: 1, ko: "잘 지냈어?", ja: "元気だった？", to: "友達",
+    polite: "잘 지내셨어요?" },
+  { id: "greet-02", scene: "greet", level: 1, ko: "오랜만이야!", ja: "久しぶり！", to: "友達",
+    polite: "오랜만이에요!" },
+  { id: "greet-03", scene: "greet", level: 1, ko: "잘 자.", ja: "おやすみ。", to: "友達・家族",
+    polite: "안녕히 주무세요." },
+  { id: "greet-04", scene: "greet", level: 1, ko: "잘 잤어?", ja: "よく眠れた？", to: "友達・家族",
+    pron: "잘 자써?", polite: "안녕히 주무셨어요?" },
+  { id: "greet-05", scene: "greet", level: 1, ko: "다녀올게.", ja: "行ってくるね。", to: "家族",
+    note: "出かけるときの「行ってきます」。" },
+  { id: "greet-06", scene: "greet", level: 1, ko: "다녀왔어.", ja: "ただいま。", to: "家族",
+    pron: "다녀와써." },
+  { id: "greet-07", scene: "greet", level: 1, ko: "조심히 가.", ja: "気をつけて帰ってね。", to: "友達",
+    pron: "조시미 가.", polite: "조심히 가세요." },
+  { id: "greet-08", scene: "greet", level: 2, ko: "나중에 연락할게.", ja: "あとで連絡するね。", to: "友達",
+    pron: "나중에 열라칼께." },
+
+  // 🍚 ごはん
+  { id: "food-01", scene: "food", level: 1, ko: "밥 먹었어?", ja: "ご飯食べた？", to: "友達・家族",
+    pron: "밥 머거써?", polite: "식사하셨어요?",
+    note: "「元気？」くらいの気軽なあいさつとしてもよく使うよ。" },
+  { id: "food-02", scene: "food", level: 1, ko: "배고파.", ja: "お腹すいた。", to: "友達・家族" },
+  { id: "food-03", scene: "food", level: 1, ko: "배불러.", ja: "お腹いっぱい。", to: "友達・家族" },
+  { id: "food-04", scene: "food", level: 1, ko: "맛있다!", ja: "おいしい！", to: "ひとりごとでも",
+    pron: "마싣따!" },
+  { id: "food-05", scene: "food", level: 2, ko: "뭐 먹을래?", ja: "何食べる？", to: "友達",
+    pron: "뭐 머글래?", note: "-ㄹ래? は「〜する？」と相手の気持ちを聞く言い方。" },
+  { id: "food-06", scene: "food", level: 2, ko: "이거 먹어 봐.", ja: "これ食べてみて。", to: "友達・家族",
+    pron: "이거 머거 봐.", note: "-아/어 봐 で「〜してみて」。" },
+  { id: "food-07", scene: "food", level: 2, ko: "내가 살게.", ja: "私がおごるよ。", to: "友達",
+    pron: "내가 살께." },
+  { id: "food-08", scene: "food", level: 2, ko: "치킨 시켜 먹을까?", ja: "チキン頼んで食べようか？", to: "友達・家族",
+    pron: "치킨 시켜 머글까?", note: "시키다 は「（出前や料理を）注文する」。" },
+
+  // 📅 予定・約束
+  { id: "plan-01", scene: "plan", level: 1, ko: "주말에 뭐 해?", ja: "週末何するの？", to: "友達",
+    pron: "주마레 뭐 해?" },
+  { id: "plan-02", scene: "plan", level: 1, ko: "시간 있어?", ja: "時間ある？", to: "友達",
+    pron: "시간 이써?" },
+  { id: "plan-03", scene: "plan", level: 1, ko: "다음에 보자.", ja: "また今度会おう。", to: "友達",
+    pron: "다으메 보자." },
+  { id: "plan-04", scene: "plan", level: 2, ko: "같이 갈래?", ja: "一緒に行く？", to: "友達",
+    pron: "가치 갈래?" },
+  { id: "plan-05", scene: "plan", level: 2, ko: "몇 시에 만날까?", ja: "何時に会おうか？", to: "友達",
+    pron: "멷 씨에 만날까?" },
+  { id: "plan-06", scene: "plan", level: 2, ko: "좀 늦을 것 같아.", ja: "ちょっと遅れそう。", to: "友達",
+    pron: "좀 느즐 껃 가타.", note: "-ㄹ 것 같아 で「〜しそう」。" },
+  { id: "plan-07", scene: "plan", level: 2, ko: "도착하면 연락해.", ja: "着いたら連絡して。", to: "友達・家族",
+    pron: "도차카면 열라캐." },
+  { id: "plan-08", scene: "plan", level: 3, ko: "미안, 그날은 안 될 것 같아.", ja: "ごめん、その日はだめそう。", to: "友達",
+    pron: "미안, 그나른 안 될 껃 가타.", note: "断るときは 미안 を先につけるとやわらかいよ。" },
+
+  // 💗 気持ち・リアクション
+  { id: "feel-01", scene: "feel", level: 1, ko: "진짜?", ja: "ほんと？", to: "友達" },
+  { id: "feel-02", scene: "feel", level: 1, ko: "괜찮아?", ja: "大丈夫？", to: "友達・家族",
+    pron: "괜차나?", polite: "괜찮으세요?" },
+  { id: "feel-03", scene: "feel", level: 1, ko: "고마워.", ja: "ありがとう。", to: "友達・家族",
+    polite: "고마워요." },
+  { id: "feel-04", scene: "feel", level: 1, ko: "미안해.", ja: "ごめんね。", to: "友達・家族",
+    polite: "죄송해요." },
+  { id: "feel-05", scene: "feel", level: 1, ko: "힘내!", ja: "がんばって！", to: "友達・家族",
+    polite: "힘내세요!" },
+  { id: "feel-06", scene: "feel", level: 2, ko: "걱정하지 마.", ja: "心配しないで。", to: "友達・家族",
+    pron: "걱쩡하지 마.", polite: "걱정하지 마세요." },
+  { id: "feel-07", scene: "feel", level: 2, ko: "너무 웃겨.", ja: "めっちゃウケる。", to: "友達",
+    pron: "너무 욷껴." },
+  { id: "feel-08", scene: "feel", level: 3, ko: "대박!", ja: "すごい！／やばい！", to: "仲のいい友達",
+    note: "くだけた言い方。目上の人には使わないでね。" },
+  { id: "feel-09", scene: "feel", level: 3, ko: "그치?", ja: "でしょ？／だよね？", to: "仲のいい友達",
+    note: "그렇지? を縮めた話し言葉。" },
+
+  // 👵 家族（目上の人へ）
+  { id: "elder-01", scene: "elder", level: 1, ko: "안녕히 주무세요.", ja: "おやすみなさい。", to: "親・祖父母",
+    note: "親には 잘 자요 と言う家庭も多いよ。" },
+  { id: "elder-02", scene: "elder", level: 1, ko: "다녀오겠습니다.", ja: "行ってまいります。", to: "親・祖父母",
+    pron: "다녀오겓씀니다." },
+  { id: "elder-03", scene: "elder", level: 2, ko: "엄마, 저 왔어요.", ja: "お母さん、ただいま。", to: "親",
+    pron: "엄마, 저 와써요.", note: "親には반말で話す家庭も多いよ。家庭によって違うの。" },
+  { id: "elder-04", scene: "elder", level: 2, ko: "식사하셨어요?", ja: "お食事されましたか？", to: "親・祖父母",
+    pron: "식싸하셔써요?", note: "밥 먹었어? の丁寧な言い方。" },
+  { id: "elder-05", scene: "elder", level: 2, ko: "맛있게 드세요.", ja: "召し上がってください。", to: "親・祖父母",
+    pron: "마싣께 드세요." },
+  { id: "elder-06", scene: "elder", level: 2, ko: "건강 조심하세요.", ja: "体に気をつけてくださいね。", to: "親・祖父母",
+    pron: "건강 조시마세요." },
+  { id: "elder-07", scene: "elder", level: 2, ko: "할머니, 보고 싶었어요.", ja: "おばあちゃん、会いたかったです。", to: "祖父母",
+    pron: "할머니, 보고 시퍼써요." },
+];

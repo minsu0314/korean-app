@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>韓国語フレーズ練習</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🇰🇷 韓国語フレーズ練習</h1>
+    <p class="sub">家族・友達との会話</p>
+  </header>
+
+  <main>
+    <nav id="scenes" class="chips" aria-label="場面"></nav>
+
+    <div class="row">
+      <div id="levels" class="chips small" aria-label="レベル"></div>
+      <label class="toggle">
+        <input type="checkbox" id="quiz">
+        <span>日本語→韓国語で言う</span>
+      </label>
+    </div>
+
+    <p id="voice-warning" class="warning" hidden>
+      ⚠️ 韓国語の音声が見つかりません。Chrome か Edge で開いてみてね。
+    </p>
+
+    <section id="card" class="card">
+      <div class="meta">
+        <span id="to" class="tag"></span>
+        <span id="lv" class="tag lv"></span>
+      </div>
+
+      <div id="ja" class="ja"></div>
+      <div id="ko-wrap">
+        <div id="ko" class="ko"></div>
+        <div id="pron" class="pron"></div>
+      </div>
+      <button id="reveal" class="reveal" hidden>声に出して言ってから、タップで答えを見る 👀</button>
+
+      <div id="extra">
+        <div id="polite" class="polite"></div>
+        <div id="note" class="note"></div>
+      </div>
+
+      <div class="actions">
+        <button id="play" class="btn primary">🔊 聞く</button>
+        <button id="slow" class="btn">🐢 ゆっくり</button>
+        <button id="done" class="btn">✅ 覚えた</button>
+      </div>
+
+      <button id="mic" class="btn mic">🎤 話して発音チェック</button>
+      <p id="mic-note" class="mic-note" hidden>
+        このブラウザでは発音チェックが使えないよ。Chrome で開いてね。
+      </p>
+      <div id="result" class="result" hidden>
+        <div id="score" class="score"></div>
+        <div class="heard-row">あなたの発音 → <span id="heard" class="heard"></span></div>
+        <div class="heard-row">お手本 → <span id="target" class="target"></span></div>
+      </div>
+      <div id="stat" class="stat"></div>
+    </section>
+
+    <div class="nav">
+      <button id="prev" class="btn">◀ 前へ</button>
+      <span id="count" class="count"></span>
+      <button id="next" class="btn">次へ ▶</button>
+    </div>
+
+    <div class="row center">
+      <label class="toggle">
+        <input type="checkbox" id="hide-done">
+        <span>覚えたものは出さない</span>
+      </label>
+      <button id="shuffle" class="btn small">🔀 シャッフル</button>
+      <button id="weak" class="btn small">😣 苦手から</button>
+    </div>
+    <p id="empty" class="empty" hidden>この条件のフレーズは全部覚えたよ！すごい 🎉</p>
+  </main>
+
+  <script src="phrases.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
