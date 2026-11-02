@@ -13,6 +13,16 @@
   </header>
 
   <main>
+    <nav id="modes" class="tabs" aria-label="練習の種類">
+      <button class="tab active" data-mode="phrase">📖 フレーズ練習</button>
+      <button class="tab" data-mode="listen">🎧 リスニング</button>
+    </nav>
+
+    <p id="voice-warning" class="warning" hidden>
+      ⚠️ 韓国語の音声が見つかりません。Chrome か Edge で開いてみてね。
+    </p>
+
+    <div id="phrase-mode">
     <nav id="scenes" class="chips" aria-label="場面"></nav>
 
     <div class="row">
@@ -22,10 +32,6 @@
         <span>日本語→韓国語で言う</span>
       </label>
     </div>
-
-    <p id="voice-warning" class="warning" hidden>
-      ⚠️ 韓国語の音声が見つかりません。Chrome か Edge で開いてみてね。
-    </p>
 
     <section id="card" class="card">
       <div class="meta">
@@ -78,9 +84,41 @@
       <button id="weak" class="btn small">😣 苦手から</button>
     </div>
     <p id="empty" class="empty" hidden>この条件のフレーズは全部覚えたよ！すごい 🎉</p>
+    </div>
+
+    <div id="listen-mode" hidden>
+      <div id="listen-levels" class="chips small" aria-label="リスニングのレベル"></div>
+
+      <section class="card">
+        <div class="meta">
+          <span id="l-level" class="tag"></span>
+          <span id="l-to" class="tag"></span>
+        </div>
+        <p class="l-ask">🎧 韓国語を聞いて、意味を選んでね</p>
+
+        <div class="actions">
+          <button id="l-play" class="btn primary">🔊 聞く</button>
+          <button id="l-slow" class="btn">🐢 ゆっくり</button>
+        </div>
+
+        <div id="l-choices" class="choices"></div>
+
+        <div id="l-answer" class="result" hidden>
+          <div id="l-feedback" class="score"></div>
+          <div id="l-ko" class="ko small"></div>
+          <div id="l-pron" class="pron"></div>
+          <div id="l-ja" class="ja"></div>
+          <div id="l-note" class="note"></div>
+        </div>
+        <button id="l-next" class="btn primary wide" hidden>次の問題 ▶</button>
+        <div id="l-stat" class="stat"></div>
+      </section>
+      <p id="l-tally" class="count center-text"></p>
+    </div>
   </main>
 
   <script src="phrases.js"></script>
   <script src="app.js"></script>
+  <script src="listening.js"></script>
 </body>
 </html>
