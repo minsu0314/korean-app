@@ -165,8 +165,11 @@ $("l-slow").addEventListener("click", () => speak(hearing.q.phrase.ko, 0.6));
 function setMode(mode, { silent = false } = {}) {
   if ("speechSynthesis" in window) speechSynthesis.cancel();
   if (state.listening && recognizer) recognizer.abort();
+  if (talk.listening && talkRec) talkRec.abort();
   $("phrase-mode").hidden = mode !== "phrase";
   $("listen-mode").hidden = mode !== "listen";
+  $("talk-mode").hidden = mode !== "talk";
+  if (mode === "talk") renderTalk();
   document.querySelectorAll("[data-mode]").forEach((b) => b.classList.toggle("active", b.dataset.mode === mode));
   try {
     localStorage.setItem("mode", mode);
@@ -188,6 +191,6 @@ let savedMode = "phrase";
 try {
   savedMode = localStorage.getItem("mode") || "phrase";
 } catch {}
-if (savedMode === "listen") {
-  setMode("listen", { silent: true });
+if (savedMode === "listen" || savedMode === "talk") {
+  setMode(savedMode, { silent: true });
 }

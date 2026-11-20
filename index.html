@@ -16,6 +16,7 @@
     <nav id="modes" class="tabs" aria-label="練習の種類">
       <button class="tab active" data-mode="phrase">📖 フレーズ練習</button>
       <button class="tab" data-mode="listen">🎧 リスニング</button>
+      <button class="tab" data-mode="talk">💬 会話</button>
     </nav>
 
     <p id="voice-warning" class="warning" hidden>
@@ -115,10 +116,58 @@
       </section>
       <p id="l-tally" class="count center-text"></p>
     </div>
+
+    <div id="talk-mode" hidden>
+      <div id="t-list" class="chips small" aria-label="会話"></div>
+
+      <section class="card">
+        <div class="meta">
+          <span class="tag">Lv6</span>
+          <span id="t-partner" class="tag"></span>
+        </div>
+        <h2 id="t-title" class="t-title"></h2>
+
+        <div id="t-log" class="t-log"></div>
+
+        <!-- 自分の番 -->
+        <div id="t-turn" class="t-turn" hidden>
+          <p class="t-ask">💬 あなたの番！日本語の意味で韓国語を言ってね</p>
+          <div id="t-ja" class="t-ja"></div>
+          <div id="t-answer" hidden>
+            <div id="t-ko" class="ko small"></div>
+            <div id="t-pron" class="pron"></div>
+            <div id="t-note" class="note"></div>
+          </div>
+          <div id="t-result" class="result" hidden>
+            <div id="t-score" class="score"></div>
+            <div class="heard-row">あなたの発音 → <span id="t-heard" class="heard"></span></div>
+          </div>
+          <button id="t-mic" class="btn mic">🎤 言ってみる</button>
+          <div class="actions">
+            <button id="t-again" class="btn">🔁 相手をもう一回</button>
+            <button id="t-show" class="btn">👀 答えを見る</button>
+            <button id="t-model" class="btn" hidden>🔊 お手本</button>
+          </div>
+          <button id="t-next" class="btn primary wide" hidden>次へ ▶</button>
+        </div>
+
+        <button id="t-start" class="btn primary wide">▶ 会話をはじめる</button>
+
+        <div id="t-end" hidden>
+          <div id="t-summary" class="result"></div>
+          <div class="actions">
+            <button id="t-replay" class="btn">🔊 会話を通して聞く</button>
+            <button id="t-retry" class="btn">🔁 もう一回</button>
+          </div>
+          <button id="t-following" class="btn primary wide">次の会話 ▶</button>
+        </div>
+      </section>
+    </div>
   </main>
 
   <script src="phrases.js"></script>
   <script src="app.js"></script>
+  <script src="talk.js"></script>
   <script src="listening.js"></script>
 </body>
 </html>

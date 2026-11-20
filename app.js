@@ -206,6 +206,7 @@ function render() {
   $("lv").textContent = "Lv" + p.level;
   $("ja").textContent = p.ja;
   $("ko").textContent = p.ko;
+  $("ko").classList.toggle("long", p.ko.length > 14);
   $("pron").textContent = p.pron || "";
   $("polite").textContent = p.polite ? "🙇 丁寧に言うと：" + p.polite : "";
   $("note").textContent = p.note || "";
